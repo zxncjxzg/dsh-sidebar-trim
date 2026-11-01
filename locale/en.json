@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Sidebar Trim",
+    "description": "Hides the sidebar's global panel navigation and gives the vertical space back to the session list."
+  }
+}

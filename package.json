@@ -1,0 +1,52 @@
+{
+  "name": "dsh-sidebar-trim",
+  "version": "0.1.0",
+  "description": "Hide the sidebar's global panel navigation (Plugins / Market / Schedules / More) and give the vertical space back to your session list. · 隐藏侧栏顶部的全局导航（插件 / 插件市场 / 自动化任务 / 更多），把垂直空间还给会话列表。",
+  "type": "module",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zxncjxzg/dsh-sidebar-trim.git"
+  },
+  "homepage": "https://github.com/zxncjxzg/dsh-sidebar-trim#readme",
+  "icon": "assets/icon.svg",
+  "keywords": [
+    "deepseek",
+    "harness",
+    "dsh",
+    "dsh-plugin",
+    "sidebar",
+    "layout",
+    "compact",
+    "ui"
+  ],
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client/client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./assets/icon.svg",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.js",
+    "client/client.js",
+    "locale/zh.json",
+    "locale/en.json",
+    "assets/icon.svg",
+    "docs/comparison.png",
+    "cordis.patch.yml",
+    "README.md",
+    "README.zh.md",
+    "LICENSE"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true
+    }
+  }
+}
