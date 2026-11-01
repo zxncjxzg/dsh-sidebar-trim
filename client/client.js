@@ -28,7 +28,7 @@ window.__ModuleLoader__.load({
     const STYLE_KEY = PLUGIN_ID + "/sidebar-trim.css";
     const STORAGE_KEY = PLUGIN_ID + ":mode";
     const DIAG_KEY = PLUGIN_ID + ":diag";
-    const DIAG_VERSION = "0.2.4";
+    const DIAG_VERSION = "0.2.5";
 
     /** `all` = whole nav, `keep-more` = the rows only, `off` = factory sidebar. */
     const MODES = ["all", "keep-more", "off"];
@@ -106,11 +106,49 @@ window.__ModuleLoader__.load({
       return PAGE_CSS + rules;
     }
 
+    /**
+     * A cookie, not localStorage: the harness picks a fresh port on every
+     * launch, and localStorage is scoped by origin (scheme + host + port), so
+     * the pick would reset on every restart. Cookie scope ignores the port.
+     */
+    const COOKIE_KEY = PLUGIN_ID + ".mode";
+    const COOKIE_MAX_AGE = 31536000;
+
+    function readCookie() {
+      try {
+        const jar = String(document.cookie || "").split(";");
+        for (let index = 0; index < jar.length; index += 1) {
+          const pair = jar[index].trim();
+          if (pair.startsWith(COOKIE_KEY + "=")) {
+            return decodeURIComponent(pair.slice(COOKIE_KEY.length + 1));
+          }
+        }
+      } catch (error) {
+        /* no cookie jar: fall through to the default */
+      }
+      return "";
+    }
+
+    function writeCookie(mode) {
+      try {
+        document.cookie =
+          COOKIE_KEY + "=" + encodeURIComponent(mode) +
+          "; path=/; max-age=" + COOKIE_MAX_AGE + "; SameSite=Lax";
+      } catch (error) {
+        /* the choice still applies to this page view */
+      }
+    }
+
     /** Unknown or unreadable storage falls back to the default, never throws. */
     function readMode() {
+      const fromCookie = readCookie();
+      if (MODES.indexOf(fromCookie) >= 0) return fromCookie;
       try {
         const stored = window.localStorage.getItem(STORAGE_KEY);
-        if (MODES.indexOf(stored) >= 0) return stored;
+        if (MODES.indexOf(stored) >= 0) {
+          writeCookie(stored); // adopt a pick made by 0.2.4 and earlier
+          return stored;
+        }
       } catch (error) {
         /* private mode / blocked storage: keep the default */
       }
@@ -118,10 +156,11 @@ window.__ModuleLoader__.load({
     }
 
     function writeMode(mode) {
+      writeCookie(mode);
       try {
         window.localStorage.setItem(STORAGE_KEY, mode);
       } catch (error) {
-        /* the choice still applies to this page view */
+        /* the cookie already carries the pick */
       }
     }
 

@@ -1,6 +1,6 @@
 {
   "name": "dsh-sidebar-trim",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "description": "Hide the sidebar's global panel navigation (Plugins / Market / Schedules / More) and give the vertical space back to your session list. Three modes, switchable in Settings → Sidebar. · 隐藏侧栏顶部的全局导航（插件 / 插件市场 / 自动化任务 / 更多），把垂直空间还给会话列表。三档模式，在 设置 → 侧栏 里随时切换。",
   "type": "module",
   "license": "MIT",

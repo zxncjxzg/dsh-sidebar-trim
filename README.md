@@ -27,7 +27,7 @@ Pick one in **Settings → Sidebar**; the sidebar changes as you pick — no rel
 | Keep “More” | Hide the three rows, keep one More button to reach the collapsed panels |
 | Hide nothing | Restore the factory sidebar, for a side-by-side look |
 
-The choice is remembered in this browser (`localStorage`); another browser, or cleared site data, starts from the default.
+The choice is remembered on this host in a cookie, so it survives a restart even though the harness picks a new port each launch. Another host (a different machine, a tunnel domain), cleared site data, or a private window starts from the default.
 
 ## Undo
 
