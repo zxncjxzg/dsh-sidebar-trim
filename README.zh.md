@@ -2,7 +2,7 @@
 
 隐藏侧栏顶部的全局面板导航——**插件 / 插件市场 / 自动化任务 / 更多**——把省下来的垂直空间还给会话列表。
 
-![侧栏精简——左：默认；右：装插件后](docs/comparison.png)
+![侧栏精简——左：默认；右：装插件后](https://raw.githubusercontent.com/zxncjxzg/dsh-sidebar-trim/main/docs/comparison.png)
 
 - 展开态省 **≈158px**（4 × 36px 行高 + 行距 + 列表下边距）
 - 窄栏 / 手机抽屉态省 **≈192px**（行距更大）

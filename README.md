@@ -2,7 +2,7 @@
 
 Hides the sidebar's global panel navigation — **Plugins / Market / Schedules / More** — and gives the vertical space back to your session list.
 
-![Sidebar Trim — left: default, right: with the plugin](docs/comparison.png)
+![Sidebar Trim — left: default, right: with the plugin](https://raw.githubusercontent.com/zxncjxzg/dsh-sidebar-trim/main/docs/comparison.png)
 
 - Expanded sidebar: saves **≈158px** (4 × 36px rows plus gaps and the list's bottom margin)
 - Collapsed rail / phone drawer: saves **≈192px** (wider gaps)
