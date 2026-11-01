@@ -17,9 +17,21 @@ Hides the sidebar's global panel navigation — **Plugins / Market / Schedules /
 
 Search `dsh-sidebar-trim` in the DSH plugin market, or install this directory as a local package into the current profile.
 
+## Three modes
+
+Pick one in **Settings → Sidebar**; the sidebar changes as you pick — no reload, no reinstall.
+
+| Mode | Effect |
+|---|---|
+| Hide all (default) | Plugins / Market / Schedules / More all collapse |
+| Keep “More” | Hide the three rows, keep one More button to reach the collapsed panels |
+| Hide nothing | Restore the factory sidebar, for a side-by-side look |
+
+The choice is remembered in this browser (`localStorage`); another browser, or cleared site data, starts from the default.
+
 ## Undo
 
-**Settings → Plugins → turn off “Sidebar Trim”.** The four rows come back immediately, no page reload.
+**Settings → Sidebar → Hide nothing** restores the rows on the spot. To remove the plugin entirely, **Settings → Plugins → turn off “Sidebar Trim”** — also without a page reload.
 
 > With the navigation hidden, **Market** and **Schedules** lose their sidebar entry too; reach them from **Settings → Plugins** when needed.
 
